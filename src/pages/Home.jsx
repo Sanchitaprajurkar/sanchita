@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Hero from "../components/Hero/Hero"; // Adjust path to your Hero file
-import AboutSection from "../components/about/AboutSection"; 
-import profilePic from "../assets/hero/profile-pic.jpg"; // Centralize the image import
+import Hero from "../components/hero/Hero"; 
+import AboutSection from "../components/about/JourneyLedger"; 
+import Atelier from "../components/skills/Atelier";
+import ProjectGallery from "../components/work/ProjectGallery";
+
+import LeadershipSection from "../components/leadership/LeadershipSection";
+import AchievementsSection from "../pages/achievements/Achievements";
+import CtfCertificationSection from "../components/certifications/CtfCertificationSection";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -19,15 +25,22 @@ const Home = () => {
   }, []);
 
   return (
-    <main>
+    <main className="bg-[#F9F6F3] min-h-screen">
       <Hero mousePos={mousePos} />
       
-      {/* CRITICAL: Pass the props here. 
-         If AboutSection.jsx is in src/components/about/ 
-      */}
-      <AboutSection mousePos={mousePos} profilePic={profilePic} />
+      <AboutSection mousePos={mousePos} />
       
-      {/* Other sections like Work, Contact, etc. */}
+      <Atelier />
+
+      <ProjectGallery />
+
+      <LeadershipSection />
+
+      <AchievementsSection />
+
+      <CtfCertificationSection />
+
+      <Footer />
     </main>
   );
 };

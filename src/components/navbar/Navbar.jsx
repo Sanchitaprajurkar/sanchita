@@ -13,9 +13,13 @@ const Navbar = ({ theme }) => {
   };
 
   const navLinks = [
-    { name: 'Collections', href: '#projects' },
-    { name: 'The Muse', href: '#about' },
-    { name: 'Journal', href: '#blog' },
+    { name: 'About', href: '#about' },
+    { name: 'Work', href: '#work' },
+    { name: 'Atelier', href: '#craft' },
+    { name: 'Philosophy', href: '#philosophy' },
+    { name: 'Leadership', href: '#leadership' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' }
   ];
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../navbar/Navbar"; 
-import heroBg from "../../assets/hero/hero-bg.png";
+import heroBg from "../../assets/hero/hero-bg.jpg";
 
 // --- THEME DEFINITIONS ---
 const themes = {
@@ -256,7 +256,7 @@ const Hero = () => {
               className="h-[1px] my-10 w-32 opacity-20" 
             />
 
-            <div className="flex flex-col md:flex-row md:items-center gap-10">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 flex-wrap">
               <motion.p 
                 animate={{ color: theme.subtext }}
                 className="text-sm max-w-[280px] leading-relaxed font-light uppercase tracking-[0.2em]"
@@ -264,13 +264,24 @@ const Hero = () => {
                 {isNight ? "Parisian nights & digital heights." : "Artisan digital experiences based in India."}
               </motion.p>
               
-              <button 
-                style={{ borderColor: `${theme.text}33`, color: theme.text }}
-                className="group relative overflow-hidden px-10 py-4 rounded-full border transition-all duration-500"
-              >
-                <motion.div animate={{ backgroundColor: theme.text }} className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                <span className="relative z-10 text-[11px] uppercase tracking-[0.3em] group-hover:invert">Explore Work</span>
-              </button>
+              <div className="flex items-center gap-4 flex-wrap">
+                <a 
+                  href="#work"
+                  style={{ borderColor: `${theme.text}33`, color: theme.text }}
+                  className="group relative overflow-hidden px-10 py-4 rounded-full border transition-all duration-500"
+                >
+                  <motion.div animate={{ backgroundColor: theme.text }} className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  <span className="relative z-10 text-[11px] uppercase tracking-[0.3em] group-hover:invert">Explore Work</span>
+                </a>
+
+                <a 
+                  href="#about"
+                  style={{ color: theme.subtext }}
+                  className="text-[11px] uppercase tracking-[0.3em] hover:opacity-100 opacity-60 transition-opacity duration-300 underline underline-offset-4 decoration-current/30"
+                >
+                  View My Journey
+                </a>
+              </div>
             </div>
           </div>
         </div>

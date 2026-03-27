@@ -65,7 +65,7 @@ const Atelier = ({ theme }) => {
         {/* This "Fake" terminal prompt invites them to click */}
         <div 
           onClick={() => setIsOpen(true)}
-          className="group cursor-pointer bg-[#1a1a1a] p-4 md:px-6 md:py-4 rounded-xl border border-dashed hover:border-solid inline-flex flex-col md:flex-row items-center gap-4 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(198,162,161,0.2)]"
+          className="group cursor-pointer bg-[#1a1a1a] p-4 md:px-6 md:py-4 rounded-xl border border-dashed hover:border-solid inline-flex flex-col md:flex-row items-center gap-4 transition-all duration-300 active:scale-[0.97] shadow-xl hover:shadow-[0_0_30px_rgba(198,162,161,0.2)]"
           style={{ borderColor: activeTheme.accent }}
         >
           <div className="flex gap-1.5 self-start md:self-center">
@@ -106,7 +106,7 @@ const Atelier = ({ theme }) => {
               animate={{ scale: 1, y: 0, opacity: 1 }} 
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="w-full max-w-4xl h-[80vh] bg-[#050505] border border-white/10 rounded-xl flex flex-col shadow-[0_0_100px_rgba(0,0,0,1)] relative z-10"
+              className="w-full max-w-4xl h-[80vh] bg-[#050505]/80 backdrop-blur-xl border border-white/10 rounded-xl flex flex-col shadow-[0_0_100px_rgba(0,0,0,1)] relative z-10"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Terminal Header */}
@@ -161,7 +161,7 @@ const Atelier = ({ theme }) => {
                             {cat.skills.map((skill, sIdx) => (
                               <span 
                                 key={sIdx} 
-                                className="px-3 py-1.5 border border-white/10 text-[11px] md:text-xs rounded hover:border-white/40 hover:text-white transition-all cursor-crosshair bg-white/5 backdrop-blur-sm"
+                                className="px-3 py-1.5 border border-white/10 text-[11px] md:text-xs rounded hover:border-white/40 hover:text-white transition-all duration-300 cursor-crosshair bg-white/5 backdrop-blur-md active:scale-90"
                                 style={{ color: activeTheme.accent }}
                               >
                                 {skill}

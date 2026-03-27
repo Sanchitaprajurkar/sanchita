@@ -150,21 +150,30 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-16 w-full">
           
           {/* Main Toggle Switch */}
-          <div className="mb-12 flex items-center gap-4">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 flex items-center gap-4"
+          >
             <span className="text-[10px] tracking-widest uppercase" style={{ color: theme.text, opacity: isNight ? 0.3 : 1 }}>Bonjour</span>
             <button 
               onClick={() => setIsNight(!isNight)}
-              className="w-12 h-6 rounded-full border border-current flex items-center px-1 relative transition-colors duration-500"
-              style={{ color: theme.text }}
+              className="w-12 h-6 rounded-full border border-current flex items-center px-1 relative transition-all duration-500 hover:shadow-lg active:scale-90 backdrop-blur-md"
+              style={{ color: theme.text, backgroundColor: `${theme.text}0D` }}
             >
               <motion.div animate={{ x: isNight ? 24 : 0 }} className="w-4 h-4 rounded-full bg-current" />
             </button>
             <span className="text-[10px] tracking-widest uppercase" style={{ color: theme.text, opacity: isNight ? 1 : 0.3 }}>Bonsoir</span>
-          </div>
+          </motion.div>
 
           {/* Text Content */}
           <div className="max-w-5xl">
             <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
               animate={{ color: theme.text }}
               className="font-serif text-5xl sm:text-7xl md:text-[10rem] tracking-tighter leading-[0.85] md:leading-[0.8]"
             >
@@ -173,12 +182,19 @@ const Hero = () => {
             </motion.h1>
 
             <motion.div 
+              initial={{ width: 0 }}
+              whileInView={{ width: "80px" }}
+              viewport={{ once: true }}
               animate={{ backgroundColor: theme.text }} 
-              className="h-[1px] my-10 w-32 opacity-20" 
+              className="h-[1px] my-10 opacity-20" 
             />
 
             <div className="flex flex-col md:flex-row md:items-center gap-6 flex-wrap">
               <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
                 animate={{ color: theme.subtext }}
                 className="text-sm max-w-[280px] leading-relaxed font-light uppercase tracking-[0.2em]"
               >
@@ -186,22 +202,33 @@ const Hero = () => {
               </motion.p>
               
               <div className="flex items-center gap-4 flex-wrap">
-                <a 
+                <motion.a 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
                   href="#work"
                   style={{ borderColor: `${theme.text}33`, color: theme.text }}
-                  className="group relative overflow-hidden px-10 py-4 rounded-full border transition-all duration-500"
+                  className="group relative overflow-hidden px-10 py-4 rounded-full border transition-all duration-500 active:scale-95"
                 >
                   <motion.div animate={{ backgroundColor: theme.text }} className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  <span className="relative z-10 text-[11px] uppercase tracking-[0.3em] group-hover:invert">Explore Work</span>
-                </a>
+                  <span className="relative z-10 text-[11px] uppercase tracking-[0.3em] group-hover:invert transition-colors duration-500">Explore Work</span>
+                </motion.a>
 
-                <Link 
-                  to="/journey"
-                  style={{ color: theme.subtext }}
-                  className="text-[11px] uppercase tracking-[0.3em] hover:opacity-100 opacity-60 transition-opacity duration-300 underline underline-offset-4 decoration-current/30"
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
                 >
-                  View My Journey
-                </Link>
+                  <Link 
+                    to="/journey"
+                    style={{ color: theme.subtext }}
+                    className="text-[11px] uppercase tracking-[0.3em] hover:opacity-100 opacity-60 transition-all duration-300 underline underline-offset-4 decoration-current/30 active:scale-95 inline-block"
+                  >
+                    View My Journey
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>

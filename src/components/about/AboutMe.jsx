@@ -88,7 +88,7 @@ const AboutMe = ({ theme }) => {
           >
             <Link 
               to="/journey"
-              className="group inline-flex items-center gap-6 md:gap-8 px-8 md:px-12 py-4 md:py-5 rounded-full border transition-all duration-700 relative overflow-hidden"
+              className="group inline-flex items-center gap-6 md:gap-8 px-8 md:px-12 py-4 md:py-5 rounded-full border transition-all duration-500 relative overflow-hidden active:scale-95"
               style={{ borderColor: `${activeTheme.text}33`, color: activeTheme.text }}
             >
               <motion.div 

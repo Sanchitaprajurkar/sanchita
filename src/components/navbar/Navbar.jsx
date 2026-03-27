@@ -87,33 +87,51 @@ const Navbar = ({ theme }) => {
               <h2 className="text-[30vw] font-serif italic whitespace-nowrap leading-none">Parisian</h2>
             </div>
 
-            <ul className="relative z-10 flex flex-col items-center gap-4 md:gap-6">
+            <ul className="relative z-10 flex flex-col items-center gap-4 md:gap-8">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + (i * 0.05) }}
+                  transition={{ delay: 0.1 + (i * 0.05), ease: [0.23, 1, 0.32, 1] }}
                 >
                   <Link 
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     onMouseEnter={() => setHoveredIndex(i)} 
                     onMouseLeave={() => setHoveredIndex(null)} 
-                    style={{ 
-                      color: hoveredIndex === i ? activeTheme.accent : activeTheme.text 
-                    }}
-                    className="group relative block font-serif text-2xl md:text-4xl transition-all duration-300"
+                    className="group relative block font-serif text-3xl md:text-5xl transition-all duration-500 active:scale-95 px-8"
                   >
-                    <span 
-                      style={{ color: activeTheme.text }}
-                      className={`absolute -left-10 top-1/2 -translate-y-1/2 text-[9px] font-sans tracking-[0.2em] transition-all duration-500 ${hoveredIndex === i ? 'opacity-80' : 'opacity-20'}`}
-                    >
-                      0{i + 1}
-                    </span>
-                    <span className={`${hoveredIndex === i ? 'pl-4 italic' : 'pl-0'} transition-all duration-500 uppercase tracking-[0.1em]`}>
-                      {link.name}
-                    </span>
+                    <div className="flex items-center gap-4">
+                      <span 
+                        style={{ color: activeTheme.text }}
+                        className={`text-[10px] md:text-xs font-sans tracking-[0.3em] font-medium transition-all duration-500 ${hoveredIndex === i ? 'opacity-100 translate-x-0' : 'opacity-20 -translate-x-2'}`}
+                      >
+                        0{i + 1}
+                      </span>
+                      <span 
+                        style={{ 
+                          color: hoveredIndex === i ? activeTheme.accent : activeTheme.text 
+                        }}
+                        className={`transition-all duration-700 uppercase tracking-[0.1em] ${hoveredIndex === i ? 'italic' : ''}`}
+                      >
+                        {link.name}
+                      </span>
+                    </div>
+
+                    {/* Animated Underline Hook */}
+                    <AnimatePresence>
+                      {hoveredIndex === i && (
+                        <motion.div 
+                          layoutId="nav-underline"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          exit={{ scaleX: 0 }}
+                          className="absolute bottom-0 left-0 right-0 h-[1px] origin-left"
+                          style={{ backgroundColor: activeTheme.accent }}
+                        />
+                      )}
+                    </AnimatePresence>
                   </Link>
                 </motion.li>
               ))}

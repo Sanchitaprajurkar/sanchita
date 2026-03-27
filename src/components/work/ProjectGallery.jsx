@@ -141,31 +141,32 @@ const ProjectGallery = () => {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -20 }}
                   transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                  className={`${project.layout === 'large' && filter === 'all' ? 'md:col-span-8' : 'md:col-span-4'}`}
+                  className={`${project.layout === 'large' && filter === 'all' ? 'md:col-span-8' : 'md:col-span-4'} transition-all duration-400 ease-[0.23,1,0.32,1]`}
                 >
                   {/* Image Container */}
                   <div 
-                    className="group relative overflow-hidden rounded-sm bg-stone-200 cursor-pointer md:cursor-none shadow-xl hover:shadow-2xl transition-all duration-500"
+                    className="group relative overflow-hidden rounded-sm bg-stone-200 cursor-pointer md:cursor-none shadow-xl hover:shadow-2xl transition-all duration-500 active:scale-[0.98]"
                     onMouseEnter={() => setHoveredProject(project)}
                     onMouseLeave={() => setHoveredProject(null)}
                   >
                     <motion.img 
                       src={project.img} 
                       alt={project.title}
-                      className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
+                      loading="lazy"
+                      className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
                       style={{ aspectRatio: project.layout === 'large' && filter === 'all' ? '16/10' : '4/5' }}
                     />
                     
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-[#2C1810]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center p-8 text-center">
-                       <p className="text-white/60 font-mono text-[9px] uppercase tracking-[0.4em] mb-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="absolute inset-0 bg-[#2C1810]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col items-center justify-center p-8 text-center backdrop-blur-[2px]">
+                       <p className="text-white/60 font-mono text-[9px] uppercase tracking-[0.4em] mb-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-400">
                          {project.category}
                        </p>
                        <a 
                          href={project.url}
                          target="_blank"
                          rel="noopener noreferrer"
-                         className="border border-white/20 text-white font-sans text-[10px] uppercase tracking-widest px-8 py-3.5 hover:bg-white hover:text-[#2C1810] transition-all"
+                         className="border border-white/20 text-white font-sans text-[10px] uppercase tracking-widest px-8 py-3.5 hover:bg-white hover:text-[#2C1810] transition-all duration-300 active:scale-95"
                        >
                          View Details
                        </a>
@@ -193,7 +194,7 @@ const ProjectGallery = () => {
           <div className="mt-32 flex justify-center">
             <Link 
               to="/work"
-              className="px-12 py-5 border border-[#2C1810] text-[#2C1810] font-sans text-xs uppercase tracking-[0.4em] font-black hover:bg-[#2C1810] hover:text-white transition-all duration-500"
+              className="px-12 py-5 border border-[#2C1810] text-[#2C1810] font-sans text-xs uppercase tracking-[0.4em] font-black hover:bg-[#2C1810] hover:text-white transition-all duration-300 active:scale-95"
             >
               View All Projects
             </Link>

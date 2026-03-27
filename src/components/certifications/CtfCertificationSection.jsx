@@ -71,7 +71,7 @@ const CtfCertificationSection = ({ theme }) => {
               className="group relative bg-[#FDFCF8] border border-[#2C1810]/5 rounded-2xl overflow-hidden grid grid-cols-12 gap-0 
               shadow-[0_4px_20px_rgba(0,0,0,0.03),0_1px_3px_rgba(0,0,0,0.05)] 
               hover:shadow-[0_40px_80px_rgba(44,24,16,0.12)] 
-              transition-all duration-700"
+              transition-all duration-500 active:scale-[0.98]"
             >
               {/* Idle "System State" Light Sweep */}
               <div className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000">

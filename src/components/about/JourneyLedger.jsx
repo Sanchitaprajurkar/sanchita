@@ -18,7 +18,7 @@ const JourneyLedger = ({ theme }) => {
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: 'auto' }}
       exit={{ opacity: 0, height: 0 }}
-      className="relative min-h-[150vh] py-32 px-6 md:px-20 overflow-hidden bg-transparent" 
+      className="relative min-h-[150vh] py-16 md:py-32 px-6 md:px-20 overflow-hidden bg-transparent" 
       id="about"
     >
       {/* The Winding Path SVG */}
@@ -42,7 +42,7 @@ const JourneyLedger = ({ theme }) => {
         />
       </svg>
 
-      <div className="max-w-5xl mx-auto flex flex-col gap-48 relative z-10">
+      <div className="max-w-5xl mx-auto flex flex-col gap-24 md:gap-48 relative z-10">
         
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -57,7 +57,7 @@ const JourneyLedger = ({ theme }) => {
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="font-serif italic text-5xl md:text-7xl mt-4"
+            className="font-serif italic text-4xl sm:text-5xl md:text-7xl mt-4"
             style={{ color: activeTheme.text }}
           >
             My Journey
@@ -171,7 +171,7 @@ const Milestone = ({ year, title, subtitle, details, align, isSummit, activeThem
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-      className={`flex flex-col ${align === 'right' ? 'items-end text-right ml-auto' : 'items-start text-left mr-auto'} max-w-xl w-full relative`}
+      className={`flex flex-col ${align === 'right' ? 'md:items-end md:text-right md:ml-auto' : 'md:items-start md:text-left md:mr-auto'} items-center text-center max-w-xl w-full relative`}
     >
       {/* Connector Dot to Central Path */}
       <div 

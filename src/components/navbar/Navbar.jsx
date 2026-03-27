@@ -23,8 +23,8 @@ const Navbar = ({ theme }) => {
   };
 
   const navLinks = [
-    { name: 'Journey', href: '/journey' },
     { name: 'Work', href: '/work' },
+    { name: 'Journey', href: '/journey' },
     { name: 'Atelier', href: '/#craft' },
     { name: 'Philosophy', href: '/#philosophy' },
     { name: 'Leadership', href: '/#leadership' },
@@ -66,7 +66,7 @@ const Navbar = ({ theme }) => {
             <div style={{ backgroundColor: activeTheme.text }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-8 rotate-45 translate-y-2' : 'w-8'}`} />
             <div style={{ backgroundColor: activeTheme.text }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'opacity-0' : 'w-5'}`} />
             <div style={{ backgroundColor: activeTheme.text }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`} />
-            <span style={{ color: activeTheme.text }} className="text-[9px] tracking-[0.3em] uppercase opacity-60 mt-2 font-medium">
+            <span style={{ color: activeTheme.text }} className="text-[5px] tracking-[0.3em] uppercase opacity-60 mt-2 font-medium">
               {isOpen ? 'Close' : 'Menu'}
             </span>
           </button>
@@ -87,13 +87,13 @@ const Navbar = ({ theme }) => {
               <h2 className="text-[30vw] font-serif italic whitespace-nowrap leading-none">Parisian</h2>
             </div>
 
-            <ul className="relative z-10 flex flex-col items-center gap-6 md:gap-10">
+            <ul className="relative z-10 flex flex-col items-center gap-4 md:gap-6">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + (i * 0.1) }}
+                  transition={{ delay: 0.1 + (i * 0.05) }}
                 >
                   <Link 
                     to={link.href}
@@ -103,15 +103,15 @@ const Navbar = ({ theme }) => {
                     style={{ 
                       color: hoveredIndex === i ? activeTheme.accent : activeTheme.text 
                     }}
-                    className="group relative block font-serif text-5xl md:text-8xl transition-all duration-500"
+                    className="group relative block font-serif text-2xl md:text-4xl transition-all duration-300"
                   >
                     <span 
                       style={{ color: activeTheme.text }}
-                      className={`absolute -left-12 top-1/2 -translate-y-1/2 text-xs font-sans tracking-[0.2em] transition-all duration-500 ${hoveredIndex === i ? 'opacity-40' : 'opacity-0'}`}
+                      className={`absolute -left-10 top-1/2 -translate-y-1/2 text-[9px] font-sans tracking-[0.2em] transition-all duration-500 ${hoveredIndex === i ? 'opacity-80' : 'opacity-20'}`}
                     >
                       0{i + 1}
                     </span>
-                    <span className={`${hoveredIndex === i ? 'pl-4 italic' : 'pl-0'} transition-all duration-500`}>
+                    <span className={`${hoveredIndex === i ? 'pl-4 italic' : 'pl-0'} transition-all duration-500 uppercase tracking-[0.1em]`}>
                       {link.name}
                     </span>
                   </Link>

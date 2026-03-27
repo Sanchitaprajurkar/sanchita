@@ -145,7 +145,7 @@ const ProjectGallery = () => {
                 >
                   {/* Image Container */}
                   <div 
-                    className="group relative overflow-hidden rounded-sm bg-stone-200 cursor-none shadow-xl hover:shadow-2xl transition-all duration-500"
+                    className="group relative overflow-hidden rounded-sm bg-stone-200 cursor-pointer md:cursor-none shadow-xl hover:shadow-2xl transition-all duration-500"
                     onMouseEnter={() => setHoveredProject(project)}
                     onMouseLeave={() => setHoveredProject(null)}
                   >

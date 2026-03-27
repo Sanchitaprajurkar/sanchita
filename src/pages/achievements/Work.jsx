@@ -115,18 +115,18 @@ const Work = () => {
             Back to Home
           </Link>
 
-          <header className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+          <header className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-10">
             <div>
               <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#C6A2A1] block mb-4">Complete Archives</span>
-              <h1 className="text-6xl md:text-8xl font-serif italic text-[#2C1810]">All Projects</h1>
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-serif italic text-[#2C1810]">All Projects</h1>
             </div>
 
-            <div className="flex gap-2 bg-[#F0EDE9] p-1.5 rounded-xl shadow-inner border border-black/5">
+            <div className="flex gap-2 bg-[#F0EDE9] p-1.5 rounded-xl shadow-inner border border-black/5 overflow-x-auto max-w-full">
               {['all', 'Professional', 'Personal'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setFilter(tab)}
-                  className={`px-6 py-2.5 text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all rounded-lg ${
+                  className={`px-4 md:px-6 py-2 md:py-2.5 text-[9px] md:text-xs font-bold uppercase tracking-widest transition-all rounded-lg whitespace-nowrap ${
                     filter === tab 
                       ? 'bg-white text-[#2C1810] shadow-md' 
                       : 'text-[#2C1810]/40 hover:text-[#2C1810]'
@@ -140,7 +140,7 @@ const Work = () => {
 
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
           >
             <AnimatePresence mode="popLayout">
               {visibleProjects.map((project) => (
@@ -154,7 +154,7 @@ const Work = () => {
                   className="flex flex-col group"
                 >
                   <div 
-                    className="relative aspect-[4/5] bg-stone-200 overflow-hidden cursor-none rounded-sm shadow-xl"
+                    className="relative aspect-[4/5] bg-stone-200 overflow-hidden cursor-pointer md:cursor-none rounded-sm shadow-xl"
                     onMouseEnter={() => setHoveredProject(project)}
                     onMouseLeave={() => setHoveredProject(null)}
                   >

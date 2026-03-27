@@ -119,10 +119,10 @@ const Achievements = () => {
       <motion.div 
         animate={{ y: stage > 0 ? -30 : 0, opacity: selectedItem ? 0 : 1 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="text-center z-10 mb-16 md:mb-24 w-full relative"
+        className="text-center z-10 mb-8 md:mb-16 md:mb-24 w-full relative"
       >
         <h2 
-          className="text-7xl md:text-8xl text-[#C6A2A1]" 
+          className="text-5xl sm:text-7xl md:text-8xl text-[#C6A2A1]" 
           style={{ fontFamily: "'Great Vibes', cursive", textShadow: "0 4px 15px rgba(0,0,0,0.05)" }}
         >
           Achievement

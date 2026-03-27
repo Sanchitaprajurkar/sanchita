@@ -163,13 +163,13 @@ const Hero = () => {
           </div>
 
           {/* Text Content */}
-          <div className="max-w-4xl">
+          <div className="max-w-5xl">
             <motion.h1 
               animate={{ color: theme.text }}
-              className="font-serif text-7xl md:text-[10rem] tracking-tighter leading-[0.8]"
+              className="font-serif text-5xl sm:text-7xl md:text-[10rem] tracking-tighter leading-[0.85] md:leading-[0.8]"
             >
               Sanchita <br /> 
-              <span className="md:ml-32 italic font-light transition-colors duration-1000" style={{ color: theme.accent }}>Rajurkar</span>
+              <span className="sm:ml-16 md:ml-32 italic font-light transition-colors duration-1000" style={{ color: theme.accent }}>Rajurkar</span>
             </motion.h1>
 
             <motion.div 

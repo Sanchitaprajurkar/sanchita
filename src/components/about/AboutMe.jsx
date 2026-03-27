@@ -31,7 +31,7 @@ const AboutMe = ({ theme }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-5xl md:text-7xl italic leading-tight mb-8"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl italic leading-tight mb-8"
             style={{ color: activeTheme.text }}
           >
             Architecting <br />
@@ -40,9 +40,9 @@ const AboutMe = ({ theme }) => {
 
           <motion.div 
             initial={{ width: 0 }}
-            whileInView={{ width: "80px" }}
+            whileInView={{ width: "60px", md: "80px" }}
             viewport={{ once: true }}
-            className="h-[1px] mb-12 opacity-20"
+            className="h-[1px] mb-8 md:mb-12 opacity-20"
             style={{ backgroundColor: activeTheme.text }}
           />
 
@@ -51,7 +51,7 @@ const AboutMe = ({ theme }) => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-lg md:text-xl font-light leading-relaxed max-w-xl italic opacity-80"
+            className="text-base md:text-xl font-light leading-relaxed max-w-xl italic opacity-80"
             style={{ color: activeTheme.text }}
           >
             "Computer Engineering student specializing in AI-powered applications, RAG-based systems, and scalable full-stack development. Built real-world solutions using Python, React.js, Node.js, JavaScript, MongoDB, and REST APIs, with strong foundations in data structures, OOP, DBMS, and computer networks."
@@ -59,17 +59,17 @@ const AboutMe = ({ theme }) => {
         </div>
 
         {/* Right Side: Philosophy & Mindset */}
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-8 md:gap-12">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="p-8 md:p-12 border border-current/10 backdrop-blur-sm relative"
+            className="p-6 md:p-12 border border-current/10 backdrop-blur-sm relative"
             style={{ color: activeTheme.text, backgroundColor: `${activeTheme.bg}80` }}
           >
             <div className="absolute -top-4 -left-4 w-12 h-12 flex items-center justify-center font-serif italic text-3xl opacity-20">"</div>
-            <p className="text-xl md:text-2xl font-serif leading-relaxed mb-8">
+            <p className="text-lg md:text-2xl font-serif leading-relaxed mb-6 md:mb-8">
               Brings an owner’s mindset, first-principles thinking, and a strong focus on building high-impact, user-centered engineering solutions.
             </p>
             
@@ -88,14 +88,14 @@ const AboutMe = ({ theme }) => {
           >
             <Link 
               to="/journey"
-              className="group inline-flex items-center gap-8 px-12 py-5 rounded-full border transition-all duration-700 relative overflow-hidden"
+              className="group inline-flex items-center gap-6 md:gap-8 px-8 md:px-12 py-4 md:py-5 rounded-full border transition-all duration-700 relative overflow-hidden"
               style={{ borderColor: `${activeTheme.text}33`, color: activeTheme.text }}
             >
               <motion.div 
                 className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 -z-10" 
                 style={{ backgroundColor: activeTheme.text }}
               />
-              <span className="font-sans text-[11px] uppercase tracking-[0.4em] font-bold group-hover:invert transition-all duration-700">View My Journey</span>
+              <span className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold group-hover:invert transition-all duration-700">View My Journey</span>
               <span className="group-hover:translate-x-2 transition-transform duration-700 group-hover:invert">→</span>
             </Link>
           </motion.div>

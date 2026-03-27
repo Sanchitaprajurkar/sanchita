@@ -86,7 +86,7 @@ const LeadershipSection = () => {
                 <p className="font-mono tracking-[0.6em] text-gray-500 text-xs uppercase mb-4">
                   {active.year}
                 </p>
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-white">
+                <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-white">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E67112] to-[#D82D75] uppercase">{titleParts[0].trim()}</span>
                   <br /> <span className="uppercase">{titleParts[1] ? titleParts[1].trim() : active.org}</span>
                 </h2>
@@ -122,7 +122,7 @@ const LeadershipSection = () => {
 
             {/* RIGHT: Ignition Dish */}
             <div className="flex justify-center items-center order-1 md:order-2 w-full relative">
-              <motion.div initial={{ scale: 0.8, rotate: -45, opacity: 0 }} animate={{ scale: 1, rotate: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 100, damping: 20 }} className="relative w-64 h-64 md:w-[480px] md:h-[480px] flex items-center justify-center">
+              <motion.div initial={{ scale: 0.8, rotate: -45, opacity: 0 }} animate={{ scale: 1, rotate: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 100, damping: 20 }} className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[480px] md:h-[480px] flex items-center justify-center">
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} className="absolute inset-[8%] md:inset-[5%] rounded-full border border-white/5 border-t-orange-500/40 border-b-purple-500/40" />
                 <motion.div whileHover={{ scale: 1.03 }} className="absolute inset-[15%] md:inset-[18%] bg-white rounded-full flex items-center justify-center overflow-hidden z-10" style={{ boxShadow: "0 0 100px rgba(230,113,18,0.15)" }}>
                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D82D75] to-transparent pointer-events-none" />
@@ -166,7 +166,7 @@ const LeadershipSection = () => {
                 <p className="font-mono tracking-[0.6em] text-gray-500 text-xs uppercase mb-4">
                   {active.year}
                 </p>
-                <h2 className="text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter text-white uppercase italic">
+                <h2 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[0.85] tracking-tighter text-white uppercase italic">
                   {titleParts[0].trim()} <br /> 
                   <span style={{ color: "#EE001E" }}>{titleParts[1] ? titleParts[1].trim() : "Team"}</span>
                 </h2>
@@ -209,7 +209,7 @@ const LeadershipSection = () => {
                 initial={{ scale: 0.8, rotate: -45, opacity: 0 }}
                 animate={{ scale: 1, rotate: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                className="relative w-64 h-64 md:w-[480px] md:h-[480px] flex items-center justify-center"
+                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[480px] md:h-[480px] flex items-center justify-center"
               >
                 <motion.div 
                   animate={{ rotate: 360 }}
@@ -262,7 +262,7 @@ const LeadershipSection = () => {
                 <p className="font-mono tracking-[0.5em] text-xs font-bold mb-4 opacity-70 text-[#50AEFF] uppercase">
                   {active.year}
                 </p>
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-white uppercase">
+                <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-white uppercase">
                   {titleParts[0].trim().split(' ')[0]} <br /> 
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0076DC] to-[#50AEFF]">
                     {titleParts[0].trim().split(' ').slice(1).join(' ')}
@@ -310,7 +310,7 @@ const LeadershipSection = () => {
                 initial={{ scale: 0.8, rotate: -45, opacity: 0 }}
                 animate={{ scale: 1, rotate: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                className="relative w-64 h-64 md:w-[480px] md:h-[480px] flex items-center justify-center"
+                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[480px] md:h-[480px] flex items-center justify-center"
               >
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute inset-[8%] md:inset-[5%] rounded-full border border-white/5 border-t-[#50AEFF]/50" />
                 <motion.div 
@@ -363,7 +363,7 @@ const LeadershipSection = () => {
                   {active.year}
                 </p>
                 
-                <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] text-white uppercase break-all md:break-normal">
+                <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] text-white uppercase break-all md:break-normal">
                   {titleParts[0].trim().split(' ')[0]} <br /> 
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-400">
                     {titleParts[1] ? titleParts[1].trim() : active.org}
@@ -418,7 +418,7 @@ const LeadershipSection = () => {
                   initial={{ scale: 0.8, y: 30, opacity: 0 }} 
                   animate={{ scale: 1, y: 0, opacity: 1 }} 
                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  className="relative w-64 h-64 md:w-[480px] md:h-[480px] bg-white rounded-full flex items-center justify-center p-12 md:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.4)] overflow-hidden"
+                  className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[480px] md:h-[480px] bg-white rounded-full flex items-center justify-center p-8 md:p-20 shadow-[0_50px_100px_rgba(0,0,0,0.4)] overflow-hidden"
                 >
                   {/* Subtle inner shadow for 'Bowl' depth */}
                   <div className="absolute inset-0 rounded-full shadow-[inset_0_2px_20px_rgba(0,0,0,0.05)] pointer-events-none" />

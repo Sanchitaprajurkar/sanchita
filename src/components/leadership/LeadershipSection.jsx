@@ -63,16 +63,19 @@ const LeadershipSection = () => {
     <section id="leadership" className="min-h-screen py-32 px-6 md:px-20 relative overflow-hidden" style={{ backgroundColor: theme.bg }}>
       
       {/* Decorative Branding Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center opacity-[0.03] select-none">
-        <h2 className="text-[35vw] font-serif italic whitespace-nowrap leading-none grayscale font-black">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-full text-center select-none">
+        <h2 
+          className="text-[35vw] font-serif italic whitespace-nowrap leading-none grayscale font-black transition-all duration-1000 opacity-10"
+          style={{ color: "#E879A6" }}
+        >
           {active.org.split(' ')[0]}
         </h2>
       </div>
 
       {/* Radiant Glow for Color POP */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] pointer-events-none opacity-20"
-        style={{ background: `radial-gradient(circle at center, ${theme.accent}1A 0%, transparent 70%)` }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] pointer-events-none opacity-10"
+        style={{ background: `radial-gradient(circle at center, #E879A61A 0%, transparent 70%)` }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -84,14 +87,14 @@ const LeadershipSection = () => {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8 border-b border-black/5 pb-10">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: theme.subtext }}>
+            <span className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: "#8A7B6E" }}>
               Profiles of Influence
             </span>
             <h2 
               className="text-6xl md:text-8xl mt-4" 
-              style={{ color: "#C6A3A2", fontFamily: "'Great Vibes', cursive" }}
+              style={{ color: "#E879A6", fontFamily: "'Great Vibes', cursive" }}
             >
-              Leadership <span style={{ color: theme.text, opacity: 0.3 }} className="font-serif italic">&</span> Responsibility
+              Leadership <span style={{ color: "#2C1810", opacity: 0.3 }} className="font-serif italic">&</span> Responsibility
             </h2>
           </div>
 
@@ -101,7 +104,7 @@ const LeadershipSection = () => {
                 key={pos.id}
                 onClick={() => setIndex(i)}
                 className={`w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border transition-all duration-300 backdrop-blur-sm
-                  ${index === i ? 'scale-110 shadow-xl border-[#C6A3A2]' : 'border-black/10 opacity-40 hover:opacity-100 grayscale hover:grayscale-0'}
+                  ${index === i ? 'scale-110 shadow-xl border-[#E879A6]' : 'border-black/10 opacity-40 hover:opacity-100 grayscale hover:grayscale-0'}
                 active:scale-95`}
                 style={{ backgroundColor: `${theme.bg}CC` }}
               >
@@ -125,29 +128,29 @@ const LeadershipSection = () => {
             {/* Left: Editorial Details */}
             <div className="order-2 md:order-1">
               <div className="flex items-center gap-4 mb-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] font-bold py-1 px-3 border border-[#C6A3A2] rounded-full" style={{ color: "#C6A3A2" }}>
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] font-bold py-1.5 px-4 border border-[#E879A6] rounded-full" style={{ color: "#E879A6" }}>
                   {active.year}
                 </span>
-                <div className="h-[1px] flex-1 opacity-20" style={{ backgroundColor: theme.text }} />
+                <div className="h-[1px] flex-1 opacity-10" style={{ backgroundColor: "#2C1810" }} />
               </div>
 
-              <h3 className="font-serif text-5xl md:text-8xl tracking-tighter leading-none mb-10" style={{ color: theme.text }}>
-                <span className="italic block mb-2" style={{ color: "#C6A3A2" }}>{titleParts[0].trim()}</span>
-                <span className="opacity-40">{titleParts[1] ? titleParts[1].trim() : active.org}</span>
+              <h3 className="font-serif text-5xl md:text-8xl tracking-tight leading-none mb-10" style={{ color: "#2C1810" }}>
+                <span className="italic block mb-2 font-normal" style={{ color: "#E879A6" }}>{titleParts[0].trim()}</span>
+                <span className="font-bold opacity-90 uppercase tracking-tighter">{titleParts[1] ? titleParts[1].trim() : active.org}</span>
               </h3>
 
-              <div className="relative p-10 md:p-14 border border-black/5 rounded-sm" style={{ backgroundColor: `${theme.bg}80` }}>
-                <div className="absolute -top-6 -left-6 w-12 h-12 flex items-center justify-center font-serif italic text-6xl opacity-10">"</div>
-                <p className="text-xl md:text-3xl font-serif italic leading-relaxed opacity-80" style={{ color: theme.text }}>
-                  {active.desc}
+              <div className="relative mb-8 pl-8 md:pl-12">
+                <span className="absolute left-0 top-0 text-5xl font-serif italic opacity-30 select-none" style={{ color: "#E879A6" }}>“</span>
+                <p className="text-xl md:text-2xl font-serif italic leading-relaxed opacity-80" style={{ color: "#2C1810" }}>
+                   {active.desc}
                 </p>
-                
-                <div className="mt-12 flex items-center gap-4">
-                  <div className="w-12 h-[1px]" style={{ backgroundColor: theme.accent }} />
-                  <span className="text-[10px] uppercase tracking-[0.4em] font-bold" style={{ color: theme.subtext }}>
-                    {active.org} Mandate
-                  </span>
-                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                 <div className="h-[1px] w-12" style={{ backgroundColor: "#E879A6" }}></div>
+                 <span className="font-mono text-[10px] uppercase tracking-[0.4em]" style={{ color: "#8A7B6E" }}>
+                   {active.org} Mandate
+                 </span>
               </div>
             </div>
 
@@ -161,19 +164,26 @@ const LeadershipSection = () => {
                   className="absolute -inset-10 rounded-full border border-dashed border-black/10" 
                 />
                 
-                {/* The Logo Plate */}
+                {/* The Logo Plate - Double Border & Glow */}
                 <motion.div 
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  className="w-48 h-48 sm:w-64 sm:h-64 md:w-[340px] md:h-[340px] bg-white rounded-full flex items-center justify-center p-8 md:p-14 shadow-[0_30px_80px_rgba(44,24,16,0.08)] relative z-10"
+                  className="w-48 h-48 sm:w-64 sm:h-64 md:w-[340px] md:h-[340px] bg-white rounded-full flex items-center justify-center p-8 md:p-14 relative z-10 
+                  border border-[#E879A6]/20 shadow-[0_0_80px_rgba(232,121,166,0.15),inset_0_0_20px_rgba(232,121,166,0.05)]"
                 >
+                  {/* Thin Inner Border Ring */}
+                  <div className="absolute inset-2 border border-[#E879A6]/10 rounded-full pointer-events-none" />
+                  
                   <img 
                     src={active.logo} 
                     alt={active.org} 
                     className="w-full h-full object-contain filter group-hover:scale-110 transition-transform duration-1000" 
-                    style={{ mixBlendMode: 'multiply' }}
+                    style={{ 
+                      mixBlendMode: 'multiply',
+                      filter: 'grayscale(0.1) brightness(1.05) contrast(1.1) saturate(0.9)'
+                    }}
                   />
                   
                   {/* Subtle Glow beneath the logo matching the theme accent */}

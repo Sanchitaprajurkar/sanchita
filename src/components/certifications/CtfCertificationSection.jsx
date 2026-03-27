@@ -21,7 +21,7 @@ const ctfEvents = [
 ];
 
 const CtfCertificationSection = ({ theme }) => {
-  const activeTheme = theme || { bg: "#F9F6F3", text: "#2C1810", subtext: "#8A7B6E", accent: "#C6A2A1" };
+  const activeTheme = theme || { bg: "#F9F6F3", text: "#2C1810", subtext: "#8A7B6E", accent: "#E879A6" };
   const [hoveredId, setHoveredId] = useState(null);
 
   return (
@@ -96,7 +96,7 @@ const CtfCertificationSection = ({ theme }) => {
               <div className="col-span-12 md:col-span-7 p-8 md:p-10 flex flex-col justify-between min-h-[280px] z-10">
                 <div className="space-y-6">
                    <div className="flex justify-between items-center">
-                     <p className="text-[10px] font-bold text-[#C6A2A1] uppercase tracking-[0.3em]">
+                     <p className="text-[10px] font-bold text-[#E879A6] uppercase tracking-[0.3em]">
                        {event.issuer}
                      </p>
                      
@@ -117,7 +117,7 @@ const CtfCertificationSection = ({ theme }) => {
                    </div>
 
                    <motion.h3 
-                    animate={{ color: hoveredId === event.id ? "#C6A2A1" : "#2C1810" }}
+                    animate={{ color: hoveredId === event.id ? "#E879A6" : "#2C1810" }}
                     className="text-2xl md:text-3xl font-bold leading-tight font-serif"
                    >
                      {event.title}

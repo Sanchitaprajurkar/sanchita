@@ -6,7 +6,7 @@ const AboutMe = ({ theme }) => {
   const activeTheme = theme || { 
     bg: "#F9F6F3", 
     text: "#2C1810", 
-    accent: "#b37f8c", 
+    accent: "#E879A6", 
     subtext: "#8A7B6E" 
   };
 

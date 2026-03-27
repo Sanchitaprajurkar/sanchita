@@ -63,10 +63,10 @@ const Navbar = ({ theme }) => {
         {/* RIGHT: The Toggle */}
         <div className="pointer-events-auto">
           <button onClick={() => setIsOpen(!isOpen)} className="group flex flex-col items-end gap-1.5 p-2">
-            <div style={{ backgroundColor: activeTheme.text }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-8 rotate-45 translate-y-2' : 'w-8'}`} />
-            <div style={{ backgroundColor: activeTheme.text }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'opacity-0' : 'w-5'}`} />
-            <div style={{ backgroundColor: activeTheme.text }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`} />
-            <span style={{ color: activeTheme.text }} className="text-[5px] tracking-[0.3em] uppercase opacity-60 mt-2 font-medium">
+            <div style={{ backgroundColor: "#C6A3A2" }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-8 rotate-45 translate-y-2' : 'w-8'}`} />
+            <div style={{ backgroundColor: "#C6A3A2" }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'opacity-0' : 'w-5'}`} />
+            <div style={{ backgroundColor: "#C6A3A2" }} className={`h-[1px] transition-all duration-500 ${isOpen ? 'w-8 -rotate-45 -translate-y-2' : 'w-8'}`} />
+            <span style={{ color: activeTheme.text }} className="text-[7px] tracking-[0.3em] uppercase opacity-60 mt-2 font-medium">
               {isOpen ? 'Close' : 'Menu'}
             </span>
           </button>
@@ -87,7 +87,7 @@ const Navbar = ({ theme }) => {
               <h2 className="text-[30vw] font-serif italic whitespace-nowrap leading-none">Parisian</h2>
             </div>
 
-            <ul className="relative z-10 flex flex-col items-center gap-4 md:gap-8">
+            <ul className="relative z-10 flex flex-col items-center gap-2 md:gap-4">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.name}
@@ -100,12 +100,12 @@ const Navbar = ({ theme }) => {
                     onClick={() => setIsOpen(false)}
                     onMouseEnter={() => setHoveredIndex(i)} 
                     onMouseLeave={() => setHoveredIndex(null)} 
-                    className="group relative block font-serif text-3xl md:text-5xl transition-all duration-500 active:scale-95 px-8"
+                    className="group relative block font-serif text-2xl md:text-3xl transition-all duration-500 active:scale-95 px-4"
                   >
                     <div className="flex items-center gap-4">
                       <span 
                         style={{ color: activeTheme.text }}
-                        className={`text-[10px] md:text-xs font-sans tracking-[0.3em] font-medium transition-all duration-500 ${hoveredIndex === i ? 'opacity-100 translate-x-0' : 'opacity-20 -translate-x-2'}`}
+                        className={`text-[8px] md:text-[10px] font-sans tracking-[0.3em] font-medium transition-all duration-500 ${hoveredIndex === i ? 'opacity-100 translate-x-0' : 'opacity-20 -translate-x-2'}`}
                       >
                         0{i + 1}
                       </span>

@@ -65,7 +65,7 @@ const ProjectGallery = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hoveredProject, setHoveredProject] = useState(null);
 
-  const activeTheme = { bg: "#F9F6F3", text: "#2C1810", subtext: "#8A7B6E", accent: "#C6A2A1" };
+  const activeTheme = { bg: "#F9F6F3", text: "#2C1810", subtext: "#8A7B6E", accent: "#E879A6" };
 
   // Mouse tracking for floating tech-stack pointer
   useEffect(() => {
@@ -177,7 +177,7 @@ const ProjectGallery = () => {
                   <div className="mt-8 space-y-3">
                     <div className="flex items-center gap-4">
                        <span className="w-10 h-[1px] bg-[#2C1810]/10"></span>
-                       <p className="text-[#C6A2A1] font-sans text-[10px] uppercase tracking-[0.4em] font-bold">
+                       <p className="text-[#E879A6] font-sans text-[10px] uppercase tracking-[0.4em] font-bold">
                          {project.type}
                        </p>
                     </div>

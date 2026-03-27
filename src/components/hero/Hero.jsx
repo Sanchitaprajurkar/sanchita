@@ -9,7 +9,7 @@ const themes = {
   day: {
     bg: "#F9F6F3",
     text: "#2C1810",
-    accent: "#b37f8c",
+    accent: "#E879A6",
     subtext: "#8A7B6E",
     imgOpacity: 1,
     imgFilter: "sepia(0%) brightness(1)",
@@ -214,21 +214,6 @@ const Hero = () => {
                   <motion.div animate={{ backgroundColor: theme.text }} className="absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   <span className="relative z-10 text-[11px] uppercase tracking-[0.3em] group-hover:invert transition-colors duration-500">Explore Work</span>
                 </motion.a>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                >
-                  <Link 
-                    to="/journey"
-                    style={{ color: theme.subtext }}
-                    className="text-[11px] uppercase tracking-[0.3em] hover:opacity-100 opacity-60 transition-all duration-300 underline underline-offset-4 decoration-current/30 active:scale-95 inline-block"
-                  >
-                    View My Journey
-                  </Link>
-                </motion.div>
               </div>
             </div>
           </div>

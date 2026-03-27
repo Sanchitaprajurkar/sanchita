@@ -5,7 +5,7 @@ const Atelier = ({ theme }) => {
   const activeTheme = theme || { 
     bg: "#F9F6F3",
     text: "#2C1810",
-    accent: "#C6A2A1",
+    accent: "#E879A6",
     gold: "#D4AF37"
   };
 

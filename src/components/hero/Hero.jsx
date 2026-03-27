@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "../navbar/Navbar"; 
+import { Link } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 import heroBg from "../../assets/hero/hero-bg.jpg";
 
 // --- THEME DEFINITIONS ---
@@ -8,7 +9,7 @@ const themes = {
   day: {
     bg: "#F9F6F3",
     text: "#2C1810",
-    accent: "#b37f8c", 
+    accent: "#b37f8c",
     subtext: "#8A7B6E",
     imgOpacity: 1,
     imgFilter: "sepia(0%) brightness(1)",
@@ -61,23 +62,16 @@ const PerfumeParticle = ({ particle, mousePos, theme }) => (
 );
 
 const Hero = () => {
-  // --- STATE FOR THEME & CLOCK ---
-  const [time, setTime] = useState(new Date());
+  // --- STATE FOR THEME ---
   const [isNight, setIsNight] = useState(false);
-  const [selectedTimezone, setSelectedTimezone] = useState("Europe/Paris");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const perfumeRef = useRef([]);
 
   const theme = isNight ? themes.night : themes.day;
 
-  const timezones = [
-    { name: "India", value: "Asia/Kolkata" },
-  ];
 
-  // 1. Clock Ticker & Particles Setup
+  // 1. Particles Setup
   useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-
     const nameStr = "SanchitaRajurkarEmilyInParis"; 
     perfumeRef.current = Array.from({ length: 40 }, (_, i) => ({
       id: i,
@@ -100,35 +94,12 @@ const Hero = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      clearInterval(timer);
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
-  // 2. Auto-set theme based on time (Initial load)
-  useEffect(() => {
-    const hour = time.getHours();
-    setIsNight(hour < 5 || hour >= 17);
-  }, []);
-
-  // Clock Hand Calculations
-  const hours = time.getHours() % 12;
-  const minutes = time.getMinutes();
-  const seconds = time.getSeconds();
-  const hourAngle = hours * 30 + minutes * 0.5;
-  const minuteAngle = minutes * 6 + seconds * 0.1;
-  const secondAngle = seconds * 6;
-
-  const formatTime = () => {
-    return time.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-      timeZone: selectedTimezone,
-    });
-  };
-
+  // 2. Theme is set to Light (Day) by default as initialized.
+  
   return (
     <motion.section 
       animate={{ backgroundColor: theme.bg }}
@@ -137,57 +108,6 @@ const Hero = () => {
     >
       <Navbar theme={theme} />
 
-      {/* --- INTEGRATED CLOCK WIDGET --- */}
-      {/* --- INTEGRATED CLOCK WIDGET (Moved to Right) --- */}
-<div className="fixed top-40 right-8 z-50 hidden lg:block">
-  <div className="flex flex-col items-end gap-4"> {/* Changed to items-end */}
-    <motion.div
-      initial={{ opacity: 0, x: 20 }} // Animation now comes from the right
-      animate={{ opacity: 1, x: 0 }}
-      className="relative w-24 h-24 rounded-full border border-[#D4AF37]/40 bg-white/10 backdrop-blur-sm shadow-xl"
-    >
-      {/* Clock Numbers */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        {[...Array(12)].map((_, i) => {
-          const angle = (i * 30 * Math.PI) / 180;
-          const x = Math.sin(angle) * 38;
-          const y = -Math.cos(angle) * 38;
-          return (
-            <div key={i} className="absolute text-[8px] font-bold" style={{ transform: `translate(${x}px, ${y}px)`, color: theme.text }}>
-              {i === 0 ? 12 : i}
-            </div>
-          );
-        })}
-      </div>
-      
-      {/* Hands */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-        <motion.div animate={{ rotate: hourAngle }} className="absolute w-0.5 h-8 bg-current rounded-full origin-bottom" style={{ transformOrigin: "center 32px", color: theme.text, top: '12px' }} />
-        <motion.div animate={{ rotate: minuteAngle }} className="absolute w-0.5 h-10 bg-[#D4AF37] rounded-full origin-bottom" style={{ transformOrigin: "center 40px", top: '8px' }} />
-        <motion.div animate={{ rotate: secondAngle }} className="absolute w-[0.5px] h-11 bg-[#D4AF37]/50 rounded-full origin-bottom" style={{ transformOrigin: "center 44px", top: '4px' }} />
-      </div>
-    </motion.div>
-
-    <div className="flex flex-col gap-2 items-end"> {/* Aligned text to right */}
-      <span className="text-[9px] tracking-[0.2em] uppercase text-right" style={{ color: theme.text }}>
-        {formatTime()}
-      </span>
-      <select
-        value={selectedTimezone}
-        onChange={(e) => setSelectedTimezone(e.target.value)}
-        className="bg-transparent border-b border-[#D4AF37]/30 text-[8px] uppercase tracking-tighter outline-none text-right cursor-pointer"
-        style={{ color: theme.subtext }}
-      >
-        {timezones.map((tz) => (
-          <option key={tz.value} value={tz.value} className="bg-white text-black">
-            {tz.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  </div>
-</div>
 
       {/* --- PERFUME CANVAS --- */}
       <svg className="absolute inset-0 z-10 pointer-events-none w-full h-full">
@@ -242,6 +162,7 @@ const Hero = () => {
             <span className="text-[10px] tracking-widest uppercase" style={{ color: theme.text, opacity: isNight ? 1 : 0.3 }}>Bonsoir</span>
           </div>
 
+          {/* Text Content */}
           <div className="max-w-4xl">
             <motion.h1 
               animate={{ color: theme.text }}
@@ -274,13 +195,13 @@ const Hero = () => {
                   <span className="relative z-10 text-[11px] uppercase tracking-[0.3em] group-hover:invert">Explore Work</span>
                 </a>
 
-                <a 
-                  href="#about"
+                <Link 
+                  to="/journey"
                   style={{ color: theme.subtext }}
                   className="text-[11px] uppercase tracking-[0.3em] hover:opacity-100 opacity-60 transition-opacity duration-300 underline underline-offset-4 decoration-current/30"
                 >
                   View My Journey
-                </a>
+                </Link>
               </div>
             </div>
           </div>

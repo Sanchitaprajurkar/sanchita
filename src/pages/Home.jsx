@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Hero from "../components/hero/Hero"; 
-import AboutSection from "../components/about/JourneyLedger"; 
+import AboutMe from "../components/about/AboutMe";
 import Atelier from "../components/skills/Atelier";
 import ProjectGallery from "../components/work/ProjectGallery";
 
@@ -28,7 +28,7 @@ const Home = () => {
     <main className="bg-[#F9F6F3] min-h-screen">
       <Hero mousePos={mousePos} />
       
-      <AboutSection mousePos={mousePos} />
+      <AboutMe mousePos={mousePos} />
       
       <Atelier />
 

@@ -95,77 +95,68 @@ const JourneyLedger = ({ theme }) => {
           activeTheme={activeTheme}
         />
 
-        {/* THE GLASS-ROOTS SECTION */}
+        {/* THE ROOTS SECTION — single unified card */}
         <div className="mt-48 relative py-20 px-4">
-          <div className="text-center mb-16">
-            <motion.h4 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="font-mono text-[10px] uppercase tracking-[0.4em] mb-4"
-              style={{ color: activeTheme.accent }}
-            >
-              The Roots
-            </motion.h4>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 0.6 }}
-              className="font-serif italic text-xl md:text-2xl"
-              style={{ color: activeTheme.text }}
-            >
-              "The foundations that shaped curiosity"
-            </motion.p>
-          </div>
-
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            {[
-              { name: "Damodar Patil Primary English", location: "Manora" },
-              { name: "Chintamani English Primary", location: "Manora" },
-              { name: "Vidyaniketan International English", location: "Digras" }
-            ].map((school, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.8 }}
-                whileHover={{ y: -8 }}
-                className="relative group"
-              >
-                {/* The Glass Card */}
-                <div 
-                  className="backdrop-blur-xl border p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-700 flex flex-col items-center text-center h-full group"
-                  style={{ 
-                    backgroundColor: `${activeTheme.bg === "#F9F6F3" ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.05)"}`,
-                    borderColor: `${activeTheme.text}10`
-                  }}
-                >
-                  <span className="text-[10px] font-mono mb-6 tracking-[0.2em] opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: activeTheme.text }}>
-                    0{index + 1}
-                  </span>
-                  
-                  <h3 className="font-serif text-xl md:text-2xl leading-snug mb-6" style={{ color: activeTheme.text }}>
-                    {school.name}
-                  </h3>
-                  
-                  <div className="mt-auto pt-6 flex flex-col items-center w-full">
-                     <div className="h-[1px] w-8 bg-black/5 mb-4 group-hover:w-16 transition-all duration-700" style={{ backgroundColor: `${activeTheme.text}20` }} />
-                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-30 group-hover:opacity-100 transition-opacity" style={{ color: activeTheme.accent }}>
-                       {school.location}
-                     </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 0.4 }}
-            className="text-center mt-24"
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+            className="max-w-xl w-full mr-auto relative"
           >
-            <p className="text-[11px] font-mono tracking-[1em] uppercase ml-[1em]" style={{ color: activeTheme.text }}>
-              Karanja (Lad)
-            </p>
+            {/* Connector dot — matches Milestone style */}
+            <div
+              className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 bg-white z-20 hidden md:block -right-[calc(25%+2rem)]"
+              style={{ borderColor: activeTheme.accent }}
+            />
+
+            <div
+              className="p-8 md:p-12 rounded-sm shadow-2xl transition-all duration-500 relative overflow-hidden backdrop-blur-sm"
+              style={{
+                backgroundColor: `${activeTheme.bg}CC`,
+                border: `1px solid ${activeTheme.text}1A`
+              }}
+            >
+              {/* Label */}
+              <span className="font-mono font-bold text-xs tracking-[0.3em] uppercase block mb-4" style={{ color: activeTheme.accent }}>
+                [Early Roots]
+              </span>
+
+              <h3 className="text-3xl md:text-4xl font-serif leading-tight mb-2" style={{ color: activeTheme.text }}>
+                The Roots
+              </h3>
+              <p className="text-sm uppercase tracking-widest font-medium opacity-50 mb-6" style={{ color: activeTheme.text }}>
+                Primary Schools
+              </p>
+
+              <div className="border-t pt-6" style={{ borderColor: `${activeTheme.text}1A` }}>
+                <p className="text-sm md:text-base font-light italic opacity-70 mb-8" style={{ color: activeTheme.subtext }}>
+                  "The foundations that shaped curiosity"
+                </p>
+
+                <div className="flex flex-col gap-5">
+                  {[
+                    { name: "Damodar Patil Primary English", location: "Manora" },
+                    { name: "Chintamani English Primary", location: "Manora" },
+                    { name: "Vidyaniketan International English", location: "Digras" }
+                  ].map((school, index) => (
+                    <div key={index} className="flex items-center justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <span className="font-mono text-[10px] tracking-[0.2em] opacity-40" style={{ color: activeTheme.text }}>
+                          0{index + 1}
+                        </span>
+                        <span className="font-serif text-base md:text-lg leading-snug" style={{ color: activeTheme.text }}>
+                          {school.name}
+                        </span>
+                      </div>
+                      <span className="text-[10px] uppercase tracking-[0.25em] font-bold opacity-50 whitespace-nowrap" style={{ color: activeTheme.accent }}>
+                        {school.location}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

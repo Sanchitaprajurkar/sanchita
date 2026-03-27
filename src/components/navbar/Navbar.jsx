@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ theme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null); // ✅ Track hover state
+  const [atTop, setAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setAtTop(window.scrollY < window.innerHeight * 0.6);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const activeTheme = theme || {
     bg: "#F9F6F3",
@@ -13,14 +23,14 @@ const Navbar = ({ theme }) => {
   };
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Work', href: '#work' },
-    { name: 'Atelier', href: '#craft' },
-    { name: 'Philosophy', href: '#philosophy' },
-    { name: 'Leadership', href: '#leadership' },
-    { name: 'Achievements', href: '#achievements' },
-    { name: 'Certifications', href: '#certifications' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Journey', href: '/journey' },
+    { name: 'Work', href: '/work' },
+    { name: 'Atelier', href: '/#craft' },
+    { name: 'Philosophy', href: '/#philosophy' },
+    { name: 'Leadership', href: '/#leadership' },
+    { name: 'Achievements', href: '/achievements' },
+    { name: 'Certifications', href: '/#certifications' },
+    { name: 'Contact', href: '/#contact' }
   ];
 
   return (
@@ -39,11 +49,16 @@ const Navbar = ({ theme }) => {
           </div>
         </div>
 
-        {/* CENTER: Branding */}
-        <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-12 pointer-events-auto text-center">
+        {/* CENTER: Branding — visible only at scroll top (in navbar context) */}
+        <motion.div
+          animate={{ opacity: atTop ? 1 : 0, y: atTop ? 0 : -10 }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
+          style={{ pointerEvents: atTop ? 'auto' : 'none' }}
+          className="hidden md:block absolute left-1/2 -translate-x-1/2 top-12 text-center"
+        >
           <p style={{ color: activeTheme.text }} className="font-sans text-[10px] tracking-[0.4em] uppercase opacity-40 mb-1">Portfolio</p>
           <h1 style={{ color: activeTheme.text }} className="font-serif text-2xl tracking-[0.2em] uppercase">Sanchita</h1>
-        </div>
+        </motion.div>
 
         {/* RIGHT: The Toggle */}
         <div className="pointer-events-auto">
@@ -80,13 +95,12 @@ const Navbar = ({ theme }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + (i * 0.1) }}
                 >
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     onClick={() => setIsOpen(false)}
-                    onMouseEnter={() => setHoveredIndex(i)} // ✅ Set hover
-                    onMouseLeave={() => setHoveredIndex(null)} // ✅ Clear hover
+                    onMouseEnter={() => setHoveredIndex(i)} 
+                    onMouseLeave={() => setHoveredIndex(null)} 
                     style={{ 
-                      // ✅ If hovered, show theme accent. If not, show theme text.
                       color: hoveredIndex === i ? activeTheme.accent : activeTheme.text 
                     }}
                     className="group relative block font-serif text-5xl md:text-8xl transition-all duration-500"
@@ -100,7 +114,7 @@ const Navbar = ({ theme }) => {
                     <span className={`${hoveredIndex === i ? 'pl-4 italic' : 'pl-0'} transition-all duration-500`}>
                       {link.name}
                     </span>
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
